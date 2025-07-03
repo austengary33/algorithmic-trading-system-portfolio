@@ -55,3 +55,20 @@ The system includes a sophisticated pipeline to transform raw, noisy tick data i
  
 - **Model Training** (model_training.py): A complete training pipeline built with Keras/TensorFlow. It defines a deep learning (LSTM) model to predict multi-class market direction, handles data preprocessing (scaling, normalization), and uses callbacks for checkpointing, early stopping, and logging.
 - **Strategy Validation** (backtest.ipynb): A rigorous backtesting framework to simulate strategy performance on out-of-sample data. It accounts for trading costs (bid-ask spread) and provides detailed PnL analysis and visualization.
+
+### 3. Deployment & Operations (DevOps)
+The entire system is designed for production and deployed as a set of automated, resilient services.
+
+- **Automated Deployment** (deploy_*.sh): Bash scripts are used to deploy and manage the application services, ensuring consistent configuration.
+- **Resilient Service Management** (*.service): All Python applications are managed as Linux systemd services with Restart=on-failure policies, guaranteeing high availability and automatic recovery from crashes.
+- **Centralized Logging**: Service logs are directed to journald for easy monitoring and debugging, with critical alerts and metrics forwarded to Google Cloud Logging.
+
+---
+
+### Technologies Used
+
+- **Languages**: Python, Bash
+- **Machine Learning**: Keras, TensorFlow, Scikit-learn, Pandas, NumPy
+- **Cloud & Infrastructure**: Google Cloud Platform (GCP), Google Cloud Pub/Sub, Google Cloud Logging
+- **System & DevOps**: Linux (Ubuntu), systemd, joblib, asyncio
+- **Data Source**: Interactive Brokers API (via ib_insync)
