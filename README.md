@@ -9,3 +9,25 @@ The project demonstrates a comprehensive skill set in Python, data engineering, 
 ## System Architecture
 
 The system is designed as a decoupled, event-driven pipeline orchestrated via Google Cloud Pub/Sub. This architecture ensures scalability, resilience, and maintainability.
+
+```
+[ Interactive Brokers API ]
+         |
+         | (Real-time Order Book Data)
+         v
+[ 1. Data Collection & Monitoring (Linux VM on GCP) ]
+   |
+   |--> [ Python Data Collector ] -> Stores raw tick data (.joblib)
+   |
+   '--> [ Python Health Monitor ] -> Validates data, publishes status
+         |
+         | (Pub/Sub Topic: "data-files-created")
+         v
+[ 2. ML Inference & Order Management (Linux VM on GCP) ]
+   |
+   |--> [ Python Prediction Service ] -> Consumes data, loads model, generates signals
+         |
+         | (Pub/Sub Topic: "order-management")
+         v
+   '--> [ Python Order Management Service ] -> Consumes signals, executes trades
+```
