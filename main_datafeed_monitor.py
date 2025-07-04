@@ -396,26 +396,8 @@ def main(MODE):
 
             # If files NOT found yet, WAIT and try again.
             time.sleep(CHECK_FILES_SLEEP_INTERVAL)
-
-            # NOTE: THIS ISN'T WORKING RIGHT:
-            # ---
-            # This:
-            # `while time_elapsed < ERROR_WAIT_TIME:`
-            # ---
-            # I have ERROR_WAIT_TIME = 1 
-            # ... but the error doesn't appear, until 24 seconds into the minute.
-            # ---
-            # Examples:
-            # 2024-10-29 21:25:24,331 [ERROR] Error: Missing files for minute: 2024-10-29 21:24:00+00:00List of missing files: USDJPY_orderbook_ticks_2024-10-29T21:24
-            # 2024-10-29 21:26:22,676 [ERROR] Error: Missing files for minute: 2024-10-29 21:25:00+00:00List of missing files: USDJPY_orderbook_ticks_2024-10-29T21:25
-            # 2024-10-29 21:27:24,745 [ERROR] Error: Missing files for minute: 2024-10-29 21:26:00+00:00List of missing files: USDJPY_orderbook_ticks_2024-10-29T21:26
-            # ---
-            # Instead I should calculcate time elapsed as seconds diff from current second, compared to minute rollover.
-            # ---
-            # So I made this change to see if it fixes it:
+            
             time_elapsed = (datetime.now(timezone.utc) - next_time_to_check).total_seconds()
-            # This was the former code used:
-            # time_elapsed += CHECK_FILES_SLEEP_INTERVAL
 
             if DEBUG:
                 logger.info(dict(
