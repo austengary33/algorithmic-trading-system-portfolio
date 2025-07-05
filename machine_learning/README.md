@@ -6,7 +6,7 @@ This directory contains the core machine learning components of the system, cove
 
 ### `feature_engineering_sample.py`
 
-**Purpose:** This file contains a selection of functions extracted from the main feature engineering notebook. It showcases the ability to translate complex financial concepts into predictive signals from raw, high-frequency data.
+**Purpose:** This file contains a selection of functions extracted from the main feature engineering notebook. It showcases the translation of complex financial concepts into predictive signals from raw, high-frequency data.
 
 **Key Skills Demonstrated:**
 *   **Quantitative Feature Engineering:** Implementation of market microstructure features like order book imbalance, price-distance-weighted liquidity, and order flow toxicity (VPIN).
