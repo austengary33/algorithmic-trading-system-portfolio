@@ -1,0 +1,15 @@
+[Unit]
+Description=Orderbook Service
+
+[Service]
+Type=forking
+User=austengary
+
+WorkingDirectory=/home/austengary/IB_API
+ExecStart=/bin/bash /home/austengary/IB_API/main_datafeed_orderbook.sh
+
+Restart=on-failure
+RestartSec=30s # Delay before restarting the service
+
+[Install]
+WantedBy=multi-user.target
