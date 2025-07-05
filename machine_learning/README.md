@@ -20,12 +20,12 @@ This directory contains the core machine learning components of the system, cove
 **Key Skills Demonstrated:**
 *   **Deep Learning with Keras/TensorFlow:** Definition of a sequential model using LSTM layers, along with `Dropout` and `BatchNormalization` for regularization.
 *   **End-to-End Training Pipeline:** A complete pipeline that handles data loading, preprocessing (scaling, normalization), splitting into training/validation sets, and model fitting.
-*   **ML Best Practices:** Implementation of essential callbacks like `ModelCheckpoint` for saving the best models, `EarlyStopping` to prevent overfitting, and custom callbacks for logging and metrics.
-*   **Handling Class Imbalance:** Use of `class_weight` to manage imbalanced datasets, a common challenge in financial modeling.
+*   **ML Best Practices:** Implementation of callbacks like `ModelCheckpoint` for saving the best models, `EarlyStopping` to prevent overfitting, and custom callbacks for logging and metrics.
+*   **Handling Class Imbalance:** Use of `class_weight` to manage imbalanced dataset.
 
 ### `backtesting_sample.ipynb`
 
-**Purpose:** This Jupyter Notebook provides a framework for rigorously backtesting the trained model's performance on out-of-sample data.
+**Purpose:** This Jupyter Notebook provides a framework for backtesting the trained model's performance on out-of-sample data.
 
 **Key Skills Demonstrated:**
 *   **Strategy Validation:** Simulating trade execution to evaluate the profitability and risk profile of the model's signals.
