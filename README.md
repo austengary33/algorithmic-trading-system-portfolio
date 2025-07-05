@@ -59,8 +59,8 @@ The system includes a sophisticated pipeline to transform raw, noisy tick data i
 ### 3. Deployment & Operations (DevOps)
 The entire system is designed for production and deployed as a set of automated, resilient services.
 
-- **Automated Deployment** (deploy_*.sh): Bash scripts are used to deploy and manage the application services, ensuring consistent configuration.
-- **Resilient Service Management** (*.service): All Python applications are managed as Linux systemd services with Restart=on-failure policies, guaranteeing high availability and automatic recovery from crashes.
+- **Automated & Idempotent Deployment** (deploy_*.sh): Deployed and updated services using idempotent Bash scripts, which check the system's state before acting, ensuring reliable and repeatable deployments.
+- **Resilient Service Management** (*.service): Engineered all Python applications to run as background systemd services on Linux, configured with Restart=on-failure policies to ensure high availability and automatic recovery from application or system failures.
 - **Centralized Logging**: Service logs are directed to journald for easy monitoring and debugging, with critical alerts and metrics forwarded to Google Cloud Logging.
 
 ---
