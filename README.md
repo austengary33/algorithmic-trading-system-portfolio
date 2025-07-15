@@ -38,11 +38,11 @@ The system is designed as a decoupled, event-driven pipeline orchestrated via Go
 
 A fault-tolerant data pipeline streams high-frequency order book data, capturing over 54 million records (~2.1B data points) monthly.
 
-- **Real-Time Data Collector** (main_datafeed_orderbook.py): A multi-process Python service that connects to the Interactive Brokers API, subscribes to Level 2 order book data for multiple currency pairs, and persists tick data to disk in one-minute batches. Features robust error handling and automated reconnection logic.
+- **Real-Time Data Collector** (datafeed_orderbook.py): A multi-process Python service that connects to the Interactive Brokers API, subscribes to Level 2 order book data for multiple currency pairs, and persists tick data to disk in one-minute batches. Features robust error handling and automated reconnection logic.
 
-- **Health & Integrity Monitor** (main_datafeed_monitor.py): A companion service that runs every minute to validate the integrity of the collected data. It checks for file existence, completeness, and timeliness, publishing health status and volume metrics to dedicated GCP Pub/Sub topics.
+- **Health & Integrity Monitor** (datafeed_monitor.py): A companion service that runs every minute to validate the integrity of the collected data. It checks for file existence, completeness, and timeliness, publishing health status and volume metrics to dedicated GCP Pub/Sub topics.
 
-- **Offline Batch Processing** (agg_tick_data_2_run_batch_job.py): A scalable batch job orchestrator that systematically processes months of raw tick data through the feature engineering engine to create datasets for model training.
+- **Offline Batch Processing** (agg_tick_data_batch_job.py): A scalable batch job orchestrator that systematically processes months of raw tick data through the feature engineering engine to create datasets for model training.
 
 ### 2. Feature Engineering & Modeling
 
