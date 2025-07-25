@@ -1,10 +1,6 @@
-# Austen Gary's Portfolio
-
-## End-to-End Algorithmic Trading System
+# Austen Gary's End-to-End Algorithmic Trading System
 
 This repository contains key modules from a full-cycle, high-frequency algorithmic trading system I architected and built from the ground up. The system is designed to be a robust, production-grade application that handles everything from real-time data ingestion and feature engineering to model training, backtesting, and automated trade execution.
-
-The project demonstrates a comprehensive skill set in Python, data engineering, machine learning (with Keras/TensorFlow), and DevOps on a cloud-native stack.
 
 ## System Architecture
 
@@ -44,11 +40,11 @@ A fault-tolerant data pipeline streams high-frequency order book data, capturing
 
 - **Health & Integrity Monitor** (datafeed_monitor.py): A companion service that runs every minute to validate the integrity of the collected data. It checks for file existence, completeness, and timeliness, publishing health status and volume metrics to dedicated GCP Pub/Sub topics.
 
-- **Offline Batch Processing** (agg_tick_data_batch_job.py): A scalable batch job orchestrator that systematically processes months of raw tick data through the feature engineering engine to create datasets for model training.
+- **Offline Batch Processing** (agg_tick_data_batch_job.py): A scalable batch job orchestrator that systematically processes years of raw tick data through the feature engineering engine to create datasets for model training.
 
 ### 2. Feature Engineering & Modeling
 
-The system includes a sophisticated pipeline to transform raw, noisy tick data into powerful predictive features.
+The system includes a sophisticated pipeline to transform raw, noisy tick data into predictive features.
 
 - **Feature Engineering Engine** (agg_tick_data.ipynb): A comprehensive Jupyter Notebook that serves as the core transformation engine. It programmatically engineers thousands of features from raw order book data, including:
   - **Market Microstructure**: Order book imbalance, depth change, volume-weighted average price (VWAP), and order flow toxicity (VPIN).
@@ -73,4 +69,4 @@ The entire system is designed for production and deployed as a set of automated,
 - **Machine Learning**: Keras, TensorFlow, Scikit-learn, Pandas, NumPy
 - **Cloud & Infrastructure**: Google Cloud Platform (GCP), Google Cloud Pub/Sub, Google Cloud Logging
 - **System & DevOps**: Linux (Ubuntu), systemd, joblib, asyncio
-- **Data Source**: Interactive Brokers API (via ib_insync)
+- **Data Source**: Interactive Brokers API 
