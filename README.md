@@ -15,6 +15,7 @@ The system is designed as a decoupled, event-driven pipeline orchestrated via Go
          |
          | (Real-time Order Book Data)
          v
+
 [ 1. Data Collection & Monitoring (Linux VM on GCP) ]
    |
    |--> [ Python Data Collector ] -> Stores raw tick data (.joblib)
@@ -23,6 +24,7 @@ The system is designed as a decoupled, event-driven pipeline orchestrated via Go
          |
          | (Pub/Sub Topic: "data-files-created")
          v
+
 [ 2. ML Inference & Order Management (Linux VM on GCP) ]
    |
    |--> [ Python Prediction Service ] -> Consumes data, loads model, generates signals
