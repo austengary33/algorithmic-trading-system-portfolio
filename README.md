@@ -14,7 +14,7 @@ The system is designed as a decoupled, event-driven pipeline orchestrated via Go
 
 [ 1. Data Collection & Monitoring (Linux VM on GCP) ]
    |
-   |--> [ Python Data Collector ] -> Stores raw tick data (.joblib)
+   |--> [ Python Data Collector ] -> Stores raw tick data 
    |
    '--> [ Python Health Monitor ] -> Validates data, publishes status
          |
