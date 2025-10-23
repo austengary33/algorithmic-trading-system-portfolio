@@ -1,4 +1,4 @@
-# Echelon (End-to-End Algorithmic Trading System)
+# Austen Gary's End-to-End Algorithmic Trading System Portfolio 
 
 This repository contains key modules from a full-cycle, high-frequency algorithmic trading system architected and built from the ground up. The system is designed to be a robust, production-grade application that handles everything from real-time data ingestion and feature engineering to model training, backtesting, and automated trade execution.
 
