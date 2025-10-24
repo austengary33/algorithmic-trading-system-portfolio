@@ -50,17 +50,23 @@ The system includes a sophisticated pipeline to transform raw, noisy tick data i
 
 - **Feature Engineering Engine** (agg_tick_data.ipynb): A comprehensive Jupyter Notebook that serves as the core transformation engine. It programmatically engineers thousands of features from raw order book data, including:
   - **Market Microstructure**: Order book imbalance, depth change, volume-weighted average price (VWAP), and order flow toxicity (VPIN).
+    
   - **Time-Series Features**: Rolling statistical measures, EMA/SMA, and cyclical time-based encodings (sin/cos).
+    
   - **Intra-Minute Dynamics**: Tick activity distribution, liquidity evolution in 10-second windows, and price-distance-weighted liquidity.
  
 - **Model Training** (model_training.py): A complete training pipeline built with Keras/TensorFlow. It defines a deep learning (LSTM) model to predict multi-class market direction, handles data preprocessing (scaling, normalization), and uses callbacks for checkpointing, early stopping, and logging.
+  
 - **Strategy Validation** (backtest.ipynb): A rigorous backtesting framework to simulate strategy performance on out-of-sample data. It accounts for trading costs (bid-ask spread) and provides detailed PnL analysis and visualization.
 
-### 3. Deployment & Operations (DevOps)
+### 3. Deployment & Operations
+
 The entire system is designed for production and deployed as a set of automated, resilient services.
 
 - **Automated & Idempotent Deployment** (deploy_*.sh): Deployed and updated services using idempotent Bash scripts, which check the system's state before acting, ensuring reliable and repeatable deployments.
+  
 - **Resilient Service Management** (*.service): Engineered all Python applications to run as background systemd services on Linux, configured with Restart=on-failure policies to ensure high availability and automatic recovery from application or system failures.
+  
 - **Centralized Logging**: Service logs are directed to journald for easy monitoring and debugging, with critical alerts and metrics forwarded to Google Cloud Logging.
 
 ---
