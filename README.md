@@ -32,7 +32,7 @@ The system is designed as a decoupled, event-driven pipeline orchestrated via Go
    '--> [ Python Order Management Service ] -> Consumes signals, executes trades
 ```
 
-## Core Components & Key Features
+## Core Components
 
 ### 1. Data Engineering & Pipeline
 
@@ -71,4 +71,4 @@ The entire system is designed for production and deployed as a set of automated,
 - **Machine Learning**: Keras, TensorFlow, Scikit-learn, Pandas, NumPy
 - **Cloud & Infrastructure**: Google Cloud Platform (GCP), Google Cloud Pub/Sub, Google Cloud Logging
 - **System & DevOps**: Linux (Ubuntu), systemd, joblib, asyncio
-- **Data Source**: Interactive Brokers API 
+- **Data Source & Market API**: Interactive Brokers API 
